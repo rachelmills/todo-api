@@ -35,31 +35,30 @@ Todo.sync({
 		}
 	});
 
-	// Todo.create({
-	// 	description: 'Take out rubbish'
-	// }).then(function(todo) {
-	// 	return Todo.create({
-	// 		description: 'Clean office'
-	// 	});
-	// }).then(function() {
-	// 	// return Todo.findById(1);
-	// 	return Todo.findAll({
-	// 		where: {
-	// 			completed: false,
-	// 			description: {
-	// 				$like: '%Office%'
-	// 			}
-	// 		}
-	// 	});
-	// }).then(function(todos) {
-	// 	if (todos) {
-	// 		todos.forEach(function(todo) {
-	// 			console.log(todo.toJSON());
-	// 		});
-	// 	} else {
-	// 		console.log('No todos found');
-	// 	}
-	// }).catch(function(e) {
-	// 	console.log(e);
-	// });
+	Todo.create({
+		description: 'Take out rubbish'
+	}).then(function(todo) {
+		return Todo.create({
+			description: 'Clean office'
+		});
+	}).then(function() {
+		// return Todo.findById(1);
+		return Todo.findAll({
+			where: {
+				completed: false,
+				description: {
+					$like: '%Office%'
+				}
+			}
+		});
+}).then(function(todos) {if (todos) {
+	todos.forEach(function(todo) {
+		console.log(todo.toJSON());
+	});
+} else {
+	console.log('No todos found');
+}
+}).catch(function(e) {
+console.log(e);
+});
 });
